@@ -1,7 +1,7 @@
 #include <IRremote.h>
 
 //IR receiver pin 11
-int RECV_PIN = 11;
+const int RECV_PIN = 11;
 IRrecv irrecv(RECV_PIN);
 
 decode_results results;
