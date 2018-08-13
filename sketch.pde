@@ -31,10 +31,12 @@ void loop()
     if(results.value == upButton)
     {
       digitalWrite(upPin, HIGH);
+      Serial.println("Motor up");
     }
     else if(results.value == downButton)
     {
       digitalWrite(downPin, HIGH);
+      Serial.println("Motor down");
     }
     
     irrecv.resume();
