@@ -8,13 +8,13 @@ Download the zip from [GitHub - IRremote](https://github.com/z3t0/Arduino-IRremo
 
 ### Step 2 : Get IRremote code
 
-Connect the IR receiver to `pin 11` on the Arduion board and upload `readIR.pde`
+Connect the IR receiver to `pin 11` on the Arduion board and upload `readIR.ino`
 
 Open the `serial monitor` in IDLE, then press the `up` and `down` button on the IR Controller. The result will show on the monitor window.
 
 ### Step 3 : Set parameter
 
-Copy the hex code get from `Step 2` and paste it in `sketch.pde`.
+Copy the hex code get from `Step 2` and paste it in `sketch.ino`.
 
 Upload the code and open `serial monitor` . If everything correct, it will print "Motor up/down" signal.
 
@@ -25,3 +25,11 @@ Connect the motor `up pin` to 9 and `down pin` to 10. Pressing the button on IR 
 ### Step 5 : Test the motor's speed
 
 Move the motor to one side, pressing `up` botton and starting the timer. When the motor stop on the other side, stop and read the timer.
+
+### Step 6 : Run testEEPROM.ino
+
+### Step 7 : Init the EEPROM by buliding and running initEEPROM.ino
+
+### Step 8 : All done
+
+Paste the data get from Step 2 and Step 5 into the `sketch_with_timer.ino` , upload it and see whether it runs well. 
