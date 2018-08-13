@@ -4,22 +4,22 @@
 
 void setup()
 {
-  Serial.begin(9600);
+    Serial.begin(9600);
 
-  float f = 123.456;
-  int eeAddress = 0;
-  
-  EEPROM.put(eeAddress, f);
+    float f = 123.456;
+    int eeAddress = 0;
 
-  Serial.println("Written float data type!");
+    EEPROM.put(eeAddress, f);
 
-  float readf = 0;
+    Serial.println("Written float data type!");
 
-  EEPROM.get(eeAddress, readf);
+    float readf = 0;
 
-  Serial.print("Float read:");
-  Serial.println(readf);
-  
+    EEPROM.get(eeAddress, readf);
+
+    Serial.print("Float read:");
+    Serial.println(readf);
+
 }
 
 void loop()

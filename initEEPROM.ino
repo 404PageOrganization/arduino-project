@@ -4,21 +4,21 @@
 
 void setup()
 {
-  pinMode(13, OUTPUT);
-  
-  for (int i = 0 ; i < EEPROM.length() ; i++)
-  {
-    EEPROM.write(i, 0);
-  }
+    pinMode(13, OUTPUT);
 
-  unsigned long nowTime = 0;
-  
-  EEPROM.put(0, nowTime);
+    for (int i = 0 ; i < EEPROM.length() ; i++)
+    {
+        EEPROM.write(i, 0);
+    }
 
-  digitalWrite(13, HIGH);
+    unsigned long nowTime = 0;
+
+    EEPROM.put(0, nowTime);
+
+    digitalWrite(13, HIGH);
 }
 
 void loop()
 {
-
+    //empty
 }

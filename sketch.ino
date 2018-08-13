@@ -16,36 +16,36 @@ unsigned long downButton = 0x654321;
 
 void setup()
 {
-  Serial.begin(9600);
-  irrecv.enableIRIn();
-  pinMode(upPin, OUTPUT);
-  pinMode(downPin, OUTPUT);
+    Serial.begin(9600);
+    irrecv.enableIRIn();
+    pinMode(upPin, OUTPUT);
+    pinMode(downPin, OUTPUT);
 }
- 
+
 void loop()
 {
-  if (irrecv.decode(&results)) 
-  {
-    Serial.println(results.value, HEX);
-    
+    if (irrecv.decode(&results))
+    {
+        Serial.println(results.value, HEX);
+
     if(results.value == upButton)
     {
-      digitalWrite(upPin, HIGH);
-      Serial.println("Motor up");
+        digitalWrite(upPin, HIGH);
+        Serial.println("Motor up");
     }
     else if(results.value == downButton)
     {
-      digitalWrite(downPin, HIGH);
-      Serial.println("Motor down");
+        digitalWrite(downPin, HIGH);
+        Serial.println("Motor down");
     }
-    
+
     irrecv.resume();
-  }
-  else
-  {
-    digitalWrite(upPin, LOW);
-    digitalWrite(downPin, LOW);
-  }
-  
+    }
+    else
+    {
+        digitalWrite(upPin, LOW);
+        digitalWrite(downPin, LOW);
+    }
+
   delay(50);
 }

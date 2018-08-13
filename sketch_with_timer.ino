@@ -26,68 +26,68 @@ bool flag = false;
 
 void setup()
 {
-  Serial.begin(9600);
-  irrecv.enableIRIn();
-  pinMode(upPin, OUTPUT);
-  pinMode(downPin, OUTPUT);
-  EEPROM.get(0, nowTime);
+    Serial.begin(9600);
+    irrecv.enableIRIn();
+    pinMode(upPin, OUTPUT);
+    pinMode(downPin, OUTPUT);
+    EEPROM.get(0, nowTime);
 }
- 
+
 void loop()
 {
-  unsigned long from;
-  from = millis();
-  
-  if (irrecv.decode(&results)) 
-  {
-    Serial.println(results.value, HEX);
-    
-    if(results.value == upButton)
+    unsigned long from;
+    from = millis();
+
+    if (irrecv.decode(&results))
     {
-      if(nowTime <= maxTime)
-      {
-        digitalWrite(upPin, HIGH);
-        Serial.println("Motor up");
-        nowTime = nowTime + (millis() - from) + 50;
-        flag = true;
-      }
-      else
-      {
-        Serial.println("Motor up to max");
+        Serial.println(results.value, HEX);
+
+        if(results.value == upButton)
+        {
+            if(nowTime <= maxTime)
+            {
+                digitalWrite(upPin, HIGH);
+                Serial.println("Motor up");
+                nowTime = nowTime + (millis() - from) + 50;
+                flag = true;
+            }
+            else
+            {
+                Serial.println("Motor up to max");
+                digitalWrite(upPin, LOW);
+                digitalWrite(downPin, LOW);
+                EEPROM.put(0, nowTime);
+                flag = false;
+            }
+        }
+        else if(results.value == downButton)
+        {
+            if(nowTime >= 0)
+            {
+                digitalWrite(downPin, HIGH);
+                Serial.println("Motor down");
+                nowTime = nowTime - (millis() - from) - 50;
+                flag = true;
+            }
+            else
+            {
+                Serial.println("Motor down to max");
+                digitalWrite(upPin, LOW);
+                digitalWrite(downPin, LOW);
+                EEPROM.put(0, nowTime);
+                flag = false;
+            }
+        }
+
+        irrecv.resume();
+    }
+    else if(flag)
+    {
         digitalWrite(upPin, LOW);
         digitalWrite(downPin, LOW);
         EEPROM.put(0, nowTime);
         flag = false;
-      }
     }
-    else if(results.value == downButton)
-    {
-      if(nowTime >= 0)
-      {
-        digitalWrite(downPin, HIGH);
-        Serial.println("Motor down");
-        nowTime = nowTime - (millis() - from) - 50;
-        flag = true;
-      }
-      else
-      {
-        Serial.println("Motor down to max");
-        digitalWrite(upPin, LOW);
-        digitalWrite(downPin, LOW);
-        EEPROM.put(0, nowTime);
-        flag = false;
-      }
-    }
-    
-    irrecv.resume();
-  }
-  else if(flag)
-  {
-    digitalWrite(upPin, LOW);
-    digitalWrite(downPin, LOW);
-    EEPROM.put(0, nowTime);
-    flag = false;
-  }
-  
-  delay(50);
+
+    delay(50);
 }
