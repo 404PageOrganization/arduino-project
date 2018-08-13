@@ -13,7 +13,7 @@ void setup()
 
   float readf = 0;
 
-  EEPROM.read(eeAddress, readf);
+  EEPROM.get(eeAddress, readf);
 
   Serial.print("Float read:");
   Serial.println(readf);
