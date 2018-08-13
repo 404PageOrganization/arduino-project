@@ -1,6 +1,6 @@
 #include <IRremote.h>
 
-//use pin 9/10 to control up/down
+//use pin 9/10 to control up/down, change here
 const int upPin = 9;
 const int downPin = 10;
 
