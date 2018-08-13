@@ -1,3 +1,5 @@
+//before LED turns on, don't power off the arduino
+
 #include <EEPROM.h>
 
 void setup()
