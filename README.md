@@ -22,6 +22,6 @@ Upload the code and open `serial monitor` . If everything correct, it will print
 
 Connect the motor `up pin` to 9 and `down pin` to 10. Pressing the button on IR Controller and see whether the motor moves.
 
-### Step 5 : Test the motor‘s speed
+### Step 5 : Test the motor's speed
 
 Move the motor to one side, pressing `up` botton and starting the timer. When the motor stop on the other side, stop and read the timer.
