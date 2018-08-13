@@ -15,3 +15,13 @@ Open the `serial monitor` in IDLE, then press the `up` and `down` button on the 
 ### Step 3 : Set parameter
 
 Copy the hex code get from `Step 2` and paste it in `sketch.pde`.
+
+Upload the code and open `serial monitor` . If everything correct, it will print "Motor up/down" signal.
+
+### Step 4 : Connect the Motor
+
+Connect the motor `up pin` to 9 and `down pin` to 10. Pressing the button on IR Controller and see whether the motor moves.
+
+### Step 5 : Test the motor‘s speed
+
+Move the motor to one side, pressing `up` botton and starting the timer. When the motor stop on the other side, stop and read the timer.
