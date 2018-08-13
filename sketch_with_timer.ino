@@ -1,4 +1,5 @@
 //Before using this sketch, you need to upload a value to EEPROM 0
+//Run initEEPROM.ino before this sketch
 
 #include <IRremote.h>
 #include <EEPROM.h>
