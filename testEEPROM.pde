@@ -1,3 +1,5 @@
+//If EEPROM works well, you will see "Float read:123.456" in monitor
+
 #include <EEPROM.h>
 
 void setup()
